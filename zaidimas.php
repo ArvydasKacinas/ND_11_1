@@ -9,18 +9,22 @@
 </head>
 <body>
     <form method="POST" action="zaidimas.php">
-        <div>
-            <select name="kiekis" id="kiekis" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option value="3" name="trys">Lengvas (3 skaičiai)</option>
-                <option value="5" name="penki">Vidutinis (5 skaičiai)</option>
-                <option value="7" name="septyni">Sunkus (7 skaičiai)</option>
-            </select>
-        </div>
-        <div>
-            <input name="spejimas" class="form-control" type="text" placeholder="Įveskite skaičių" aria-label="default input example"/>
-        </div>
-        <div>
-            <button name="play">Žaisti</button>
+        <div class="w-75 p-3">
+            <div>
+                <p>Sudėtingumas</p>
+                <select name="kiekis" id="kiekis" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option value="3" name="trys">Lengvas (3 skaičiai)</option>
+                    <option value="5" name="penki">Vidutinis (5 skaičiai)</option>
+                    <option value="7" name="septyni">Sunkus (7 skaičiai)</option>
+                </select>
+            </div>
+            <div>
+                <p>Skaičius, kurį spėjame</p>
+                <input name="spejimas" class="form-control" type="text" placeholder="Įveskite skaičių" aria-label="default input example"/>
+            </div>
+            <div>
+                <button name="play" class="btn btn-primary">Žaisti</button>
+            </div>
         </div>
     </form>
     
@@ -36,15 +40,14 @@
         $skaicius=$_POST["kiekis"];
         $randomas=rand(1,$skaicius);
         $spejimas=$_POST["spejimas"];
-        echo $spejimas;
-        echo "<br>";
-        echo $randomas;
-        echo "<br>";
+        // echo $spejimas;
+        // echo "<br>";
+        // echo $randomas;
+        // echo "<br>";
         if($randomas==$spejimas) {
-            echo "Atspejai, pasislėpęs skaičius buvo ".$randomas;
+            echo "<div class=\"alert alert-success\" role=\"alert\">Atspėjai, pasislėpęs skaičius buvo ".$randomas."</div>";
         } else {
-            // echo "Neatspėjai, pasislėpęs skaičius buvo ".$randomas;
-            echo '<div class="alert alert-success" role="alert">Thank You!now please login </div>';
+            echo "<div class=\"alert alert-danger\" role=\"alert\">Neatspėjai, pasislėpęs skaičius buvo ".$randomas."</div>";
         }
    }
 
