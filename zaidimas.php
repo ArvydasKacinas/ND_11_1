@@ -9,9 +9,9 @@
 </head>
 <body>
     <form method="POST" action="zaidimas.php">
-        <div class="w-75 p-3">
+        <div class="container w-75 p-3">
             <div>
-                <p>Sudėtingumas</p>
+                <label>Sudėtingumas</label>
                 <select name="kiekis" id="kiekis" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                     <option value="3" name="trys">Lengvas (3 skaičiai)</option>
                     <option value="5" name="penki">Vidutinis (5 skaičiai)</option>
@@ -19,7 +19,7 @@
                 </select>
             </div>
             <div>
-                <p>Skaičius, kurį spėjame</p>
+                <label>Skaičius, kurį spėjame</label>
                 <input name="spejimas" class="form-control" type="text" placeholder="Įveskite skaičių" aria-label="default input example"/>
             </div>
             <div>
@@ -29,9 +29,6 @@
     </form>
     
 <?php
-    // $trys=rand(1,3);
-    // $penki=rand(1,5);
-    // $septyni=rand(1,7);
 
     $skaicius=0;
     $spejimas=0;
@@ -40,14 +37,10 @@
         $skaicius=$_POST["kiekis"];
         $randomas=rand(1,$skaicius);
         $spejimas=$_POST["spejimas"];
-        // echo $spejimas;
-        // echo "<br>";
-        // echo $randomas;
-        // echo "<br>";
         if($randomas==$spejimas) {
-            echo "<div class=\"alert alert-success\" role=\"alert\">Atspėjai, pasislėpęs skaičius buvo ".$randomas."</div>";
+            echo "<div class=\"container alert alert-success\" role=\"alert\">Atspėjai! Tavo spėjimas buvo ".$spejimas.", o pasislėpęs skaičius taipogi buvo ".$randomas."</div>";
         } else {
-            echo "<div class=\"alert alert-danger\" role=\"alert\">Neatspėjai, pasislėpęs skaičius buvo ".$randomas."</div>";
+            echo "<div class=\"container alert alert-danger\" role=\"alert\">Neatspėjai... Tavo spėjimas buvo ".$spejimas.", o pasislėpęs skaičius buvo ".$randomas."</div>";
         }
    }
 
